@@ -625,6 +625,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 2.94
       objectReference: {fileID: 0}
+    - target: {fileID: 68692088162738452, guid: ef32b2631e7464e45888c4a2e07bffad,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef32b2631e7464e45888c4a2e07bffad, type: 2}
   m_IsPrefabParent: 0
@@ -642,7 +647,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4658936147199892, guid: 42647d5f322abcb4699d8e2312cf05c8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -14.66
+      value: -21.71
       objectReference: {fileID: 0}
     - target: {fileID: 4658936147199892, guid: 42647d5f322abcb4699d8e2312cf05c8, type: 2}
       propertyPath: m_LocalPosition.y
@@ -674,13 +679,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 50074801231594546, guid: 42647d5f322abcb4699d8e2312cf05c8,
         type: 2}
-      propertyPath: m_BodyType
-      value: 0
+      propertyPath: m_AngularDrag
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 50074801231594546, guid: 42647d5f322abcb4699d8e2312cf05c8,
         type: 2}
-      propertyPath: m_UseFullKinematicContacts
-      value: 0
+      propertyPath: m_LinearDrag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 50074801231594546, guid: 42647d5f322abcb4699d8e2312cf05c8,
+        type: 2}
+      propertyPath: m_Mass
+      value: 0.16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 42647d5f322abcb4699d8e2312cf05c8, type: 2}
