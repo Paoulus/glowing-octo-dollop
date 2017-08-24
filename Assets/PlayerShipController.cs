@@ -21,14 +21,15 @@ public class PlayerShipController : MonoBehaviour {
 		float a = accelleration * Time.deltaTime;
 		Rigidbody2D shipBody = this.GetComponent<Rigidbody2D> ();
 
-	
+		//utilizza transform.right dato che la trasformata ha rotazione iniziale di 0,0,90
+
 		if(Input.GetKey(KeyCode.W)){
-			shipBody.velocity += new Vector2(transform.up.x,transform.up.y) * a;
+			shipBody.velocity += new Vector2(transform.right.x,transform.right.y) * a;
 		}else{
-			shipBody.velocity -= new Vector2 (transform.up.x, transform.up.y) * (0.3f * Time.deltaTime);
+			shipBody.velocity -= new Vector2 (transform.right.x, transform.right.y) * (0.3f * Time.deltaTime);
 		}
 		if(Input.GetKey(KeyCode.S)){
-			shipBody.velocity -= new Vector2(transform.up.x,transform.up.y) * a;
+			shipBody.velocity -= new Vector2(transform.right.x,transform.right.y) * a;
 		}
 		if(Input.GetKey(KeyCode.A)){
 			if (Input.GetKey (KeyCode.LeftShift)) {
@@ -44,7 +45,7 @@ public class PlayerShipController : MonoBehaviour {
 				shipBody.rotation -= speedTurningRadius(shipBody.velocity.magnitude);
 			}
 		}
-		shipBody.velocity = transform.up * Mathf.Clamp (shipBody.velocity.magnitude, minimumSpeed, maximumSpeed);
+		shipBody.velocity = transform.right * Mathf.Clamp (shipBody.velocity.magnitude, minimumSpeed, maximumSpeed);
 
 		Camera.main.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, -10f);
 	}

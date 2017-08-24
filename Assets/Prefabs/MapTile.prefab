@@ -55,7 +55,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.5}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.15
   m_Points:
   - {x: -0.5, y: 0}
   - {x: 0.5, y: 0}
@@ -67,12 +67,12 @@ EdgeCollider2D:
   m_GameObject: {fileID: 1902130323437170}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 21b354bb54773ef459e97c45cf2b9178, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.01, y: -0.49}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.15
   m_Points:
   - {x: -0.5, y: 0}
   - {x: -0.48154566, y: 0}
