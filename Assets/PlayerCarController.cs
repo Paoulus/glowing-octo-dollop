@@ -11,11 +11,15 @@ public class PlayerCarController : MonoBehaviour {
 	public float turningRadius = 0.5f;
 	public float driftQuantity = 1.4f;
 
+	public ParticleSystem explosionEffect;
+
 	private ParticleSystem smokeTrails;
 
 	void OnCollisionEnter2D(Collision2D coll){
 		health -= 20f;
 		if(health <= 0){
+			explosionEffect.transform.position = coll.contacts[0].point;
+			explosionEffect.Play ();
 			Destroy (this.gameObject);
 		}
 	}
@@ -23,7 +27,6 @@ public class PlayerCarController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		smokeTrails = GetComponent<ParticleSystem> ();
-		smokeTrails.Stop ();
 	}
 
 	// Update is called once per frame
@@ -39,9 +42,10 @@ public class PlayerCarController : MonoBehaviour {
 		if(Input.GetKey(KeyCode.S)){
 			shipBody.AddForce (-accellerationVector);
 		}
+
+
 		if(Input.GetKey(KeyCode.A)){
 			if (Input.GetKey (KeyCode.LeftShift)) {
-				smokeTrails.Play ();
 				shipBody.AddTorque(turningRadius *driftQuantity);
 			}else{
 				shipBody.AddTorque(turningRadius);
@@ -49,13 +53,20 @@ public class PlayerCarController : MonoBehaviour {
 		}
 		if(Input.GetKey(KeyCode.D)){
 			if (Input.GetKey (KeyCode.LeftShift)) {
-				smokeTrails.Play ();
 				shipBody.AddTorque(-turningRadius * driftQuantity);
 			}else{
 				shipBody.AddTorque(-turningRadius);
 			}
 		}
-		smokeTrails.Stop ();
+
+		if((Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.S))) && Input.GetKey(KeyCode.LeftShift)){
+			if (!smokeTrails.isPlaying) {
+				smokeTrails.Play ();
+			}
+		}else{
+			if(smokeTrails.isPlaying)
+				smokeTrails.Stop ();
+		}
 
 		shipBody.velocity = transform.up * Mathf.Clamp (shipBody.velocity.magnitude, minimumSpeed, maximumSpeed);
 

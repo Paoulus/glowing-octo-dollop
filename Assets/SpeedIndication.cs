@@ -5,17 +5,22 @@ using UnityEngine.UI;
 
 public class SpeedIndication : MonoBehaviour {
 
-	public GameObject playerShip;
+	public ParticleSystem explosionEffect;
+
+	void OnCollisionEnter2D(Collision2D coll){
+		explosionEffect.transform.position = coll.collider.transform.position;
+		explosionEffect.Play ();
+	}
 
 	// Use this for initialization
 	void Start () {
 		
 	}
+
 	
+
 	// Update is called once per frame
 	void Update () {
-		if (playerShip.GetComponent<Rigidbody2D>()){
-			GetComponent<Text>().text = playerShip.GetComponent<Rigidbody2D> ().velocity.magnitude.ToString();
-		}
+
 	}
 }
