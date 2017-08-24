@@ -34,7 +34,7 @@ public class PlayerCarController : MonoBehaviour {
 
   // Update is called once per frame
   void Update () {
-    Vector2 accellerationVector = transform.up * accelleration;
+		Vector2 accellerationVector = transform.up * accelleration;
     if (Input.GetKey (KeyCode.W)) {
       shipBody.AddForce (accellerationVector);
     }
@@ -42,22 +42,24 @@ public class PlayerCarController : MonoBehaviour {
       shipBody.AddForce (-accellerationVector);
     }
 
-    if (Input.GetKey (KeyCode.A)) {
-      if (Input.GetKey (KeyCode.LeftShift)) {
-        shipBody.AddTorque (turningRadius * driftQuantity);
-      } else {
-        shipBody.AddTorque (turningRadius);
-      }
-    }
-    if (Input.GetKey (KeyCode.D)) {
-      if (Input.GetKey (KeyCode.LeftShift)) {
-        shipBody.AddTorque (-turningRadius * driftQuantity);
-      } else {
-        shipBody.AddTorque (-turningRadius);
-      }
-    }
+		if (shipBody.velocity.magnitude >= 0.3f) {
+		if (Input.GetKey (KeyCode.A)) {
+				if (Input.GetKey (KeyCode.Space)) {
+					shipBody.AddTorque (turningRadius * driftQuantity);
+			} else {
+					shipBody.AddTorque (turningRadius);
+			}
+		}
+		if (Input.GetKey (KeyCode.D)) {
+				if (Input.GetKey (KeyCode.Space)) {
+					shipBody.AddTorque (-turningRadius * driftQuantity);
+			} else {
+					shipBody.AddTorque (-turningRadius);
+			}
+		}
+	}
 
-    if ((Input.GetKey (KeyCode.A) || (Input.GetKey (KeyCode.S))) && Input.GetKey (KeyCode.LeftShift)) {
+    if ((Input.GetKey (KeyCode.A) || (Input.GetKey (KeyCode.D))) && Input.GetKey (KeyCode.LeftShift)) {
       if (!smokeTrails.isPlaying) {
         smokeTrails.Play ();
       }
