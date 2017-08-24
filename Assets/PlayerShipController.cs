@@ -20,7 +20,7 @@ public class PlayerShipController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Vector2 accellerationVector = transform.right * accelleration;
+		Vector2 accellerationVector = transform.up * accelleration;
 		Rigidbody2D shipBody = this.GetComponent<Rigidbody2D> ();
 
 		//utilizza transform.right dato che la trasformata ha rotazione iniziale di 0,0,90
@@ -33,21 +33,23 @@ public class PlayerShipController : MonoBehaviour {
 		}
 		if(Input.GetKey(KeyCode.A)){
 			if (Input.GetKey (KeyCode.LeftShift)) {
-				//smokeTrails.Play ();
-				shipBody.AddTorque(turningRadius);
+				smokeTrails.Play ();
+				shipBody.AddTorque(turningRadius * 2f);
 			}else{
 				shipBody.AddTorque(turningRadius);
 			}
 		}
 		if(Input.GetKey(KeyCode.D)){
 			if (Input.GetKey (KeyCode.LeftShift)) {
-				//smokeTrails.Play ();
-				shipBody.AddTorque(-turningRadius);
+				smokeTrails.Play ();
+				shipBody.AddTorque(-turningRadius * 2f);
 			}else{
 				shipBody.AddTorque(-turningRadius);
 			}
 		}
-		shipBody.velocity = transform.right * Mathf.Clamp (shipBody.velocity.magnitude, minimumSpeed, maximumSpeed);
+		smokeTrails.Stop ();
+
+		shipBody.velocity = transform.up * Mathf.Clamp (shipBody.velocity.magnitude, minimumSpeed, maximumSpeed);
 
 		Camera.main.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, -10f);
 	}
