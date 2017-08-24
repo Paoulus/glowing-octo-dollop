@@ -483,7 +483,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.09277679, g: 0.43414783, b: 0.9705882, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -642,7 +642,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4658936147199892, guid: 42647d5f322abcb4699d8e2312cf05c8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -14.96
+      value: -14.66
       objectReference: {fileID: 0}
     - target: {fileID: 4658936147199892, guid: 42647d5f322abcb4699d8e2312cf05c8, type: 2}
       propertyPath: m_LocalPosition.y
@@ -672,15 +672,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 198744927529157716, guid: 42647d5f322abcb4699d8e2312cf05c8,
+    - target: {fileID: 50074801231594546, guid: 42647d5f322abcb4699d8e2312cf05c8,
         type: 2}
-      propertyPath: looping
+      propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 198744927529157716, guid: 42647d5f322abcb4699d8e2312cf05c8,
+    - target: {fileID: 50074801231594546, guid: 42647d5f322abcb4699d8e2312cf05c8,
         type: 2}
-      propertyPath: randomSeed
-      value: -1892890405
+      propertyPath: m_UseFullKinematicContacts
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 42647d5f322abcb4699d8e2312cf05c8, type: 2}

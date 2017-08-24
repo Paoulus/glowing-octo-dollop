@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PlayerShipController : MonoBehaviour {
 
-	//la velocità di rotazione è inversamente proporzionale alla veloctià
-
 	public float accelleration = 0.5f;
 	public float maximumSpeed = 10f;
 	public float health = 100f;
 	public float minimumSpeed = -7f;
 
+	private ParticleSystem smokeTrails;
+
 	// Use this for initialization
 	void Start () {
-
+		smokeTrails = GetComponent<ParticleSystem> ();
+		smokeTrails.Stop ();
 	}
 
 	// Update is called once per frame
@@ -33,14 +34,16 @@ public class PlayerShipController : MonoBehaviour {
 		}
 		if(Input.GetKey(KeyCode.A)){
 			if (Input.GetKey (KeyCode.LeftShift)) {
-				shipBody.rotation += 2.3f;
+				//smokeTrails.Play ();
+				shipBody.rotation += speedTurningRadius(shipBody.velocity.magnitude) + 1.5f;
 			}else{
 				shipBody.rotation += speedTurningRadius(shipBody.velocity.magnitude);
 			}
 		}
 		if(Input.GetKey(KeyCode.D)){
 			if (Input.GetKey (KeyCode.LeftShift)) {
-				shipBody.rotation -= 2.3f;
+				//smokeTrails.Play ();
+				shipBody.rotation -= speedTurningRadius(shipBody.velocity.magnitude) + 1.5f;
 			}else{
 				shipBody.rotation -= speedTurningRadius(shipBody.velocity.magnitude);
 			}
@@ -51,7 +54,7 @@ public class PlayerShipController : MonoBehaviour {
 	}
 
 	float speedTurningRadius(float speed){
-		Debug.Log (8f * (1f / Mathf.Clamp (speed, 0.4f, maximumSpeed))); 
+		Debug.Log (8f * (1f / Mathf.Clamp (speed, 1.0f, maximumSpeed))); 
 		return 8f * 1f / Mathf.Clamp(speed, 1.0f,maximumSpeed);
 	}
 }
