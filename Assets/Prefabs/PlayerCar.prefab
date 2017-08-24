@@ -20,11 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4658936147199892}
   - component: {fileID: 212544021459711618}
-  - component: {fileID: 114717782107412026}
   - component: {fileID: 50074801231594546}
   - component: {fileID: 61158030799118140}
   - component: {fileID: 198744927529157716}
   - component: {fileID: 199384295119735232}
+  - component: {fileID: 114673882079556780}
   m_Layer: 0
   m_Name: PlayerCar
   m_TagString: Untagged
@@ -58,7 +58,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 0.16
   m_LinearDrag: 2
-  m_AngularDrag: 3
+  m_AngularDrag: 2
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -90,7 +90,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.09, y: 2.48}
   m_EdgeRadius: 0
---- !u!114 &114717782107412026
+--- !u!114 &114673882079556780
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -101,11 +101,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4f9f127fa08014d84cea12d25713ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelleration: 5
-  maximumSpeed: 10
+  accelleration: 1.4
+  maximumSpeed: 20
   health: 100
   minimumSpeed: -7
-  turningRadius: 0.2
+  turningRadius: 0.7
+  driftQuantity: 1.4
 --- !u!198 &198744927529157716
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -165,7 +166,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -891390339
+  randomSeed: 1165292653
   InitialModule:
     serializedVersion: 3
     enabled: 1

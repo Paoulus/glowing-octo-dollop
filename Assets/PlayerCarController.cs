@@ -2,15 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShipController : MonoBehaviour {
+public class PlayerCarController : MonoBehaviour {
 
 	public float accelleration = 0.5f;
 	public float maximumSpeed = 10f;
 	public float health = 100f;
 	public float minimumSpeed = -7f;
 	public float turningRadius = 0.5f;
+	public float driftQuantity = 1.4f;
 
 	private ParticleSystem smokeTrails;
+
+	void OnCollisionEnter2D(Collision2D coll){
+		health -= 20f;
+		if(health <= 0){
+			Destroy (this.gameObject);
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -34,7 +42,7 @@ public class PlayerShipController : MonoBehaviour {
 		if(Input.GetKey(KeyCode.A)){
 			if (Input.GetKey (KeyCode.LeftShift)) {
 				smokeTrails.Play ();
-				shipBody.AddTorque(turningRadius * 2f);
+				shipBody.AddTorque(turningRadius *driftQuantity);
 			}else{
 				shipBody.AddTorque(turningRadius);
 			}
@@ -42,7 +50,7 @@ public class PlayerShipController : MonoBehaviour {
 		if(Input.GetKey(KeyCode.D)){
 			if (Input.GetKey (KeyCode.LeftShift)) {
 				smokeTrails.Play ();
-				shipBody.AddTorque(-turningRadius * 2f);
+				shipBody.AddTorque(-turningRadius * driftQuantity);
 			}else{
 				shipBody.AddTorque(-turningRadius);
 			}
