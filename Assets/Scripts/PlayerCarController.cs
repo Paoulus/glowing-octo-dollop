@@ -15,6 +15,7 @@ public class PlayerCarController : MonoBehaviour {
   public ParticleSystem explosionEffect;
 
   private ParticleSystem smokeTrails;
+	private Rigidbody2D shipBody;
 
   void OnCollisionEnter2D (Collision2D coll) {
     health -= 20f;
@@ -28,15 +29,12 @@ public class PlayerCarController : MonoBehaviour {
   // Use this for initialization
   void Start () {
     smokeTrails = GetComponent<ParticleSystem> ();
+		shipBody = GetComponent<Rigidbody2D> ();
   }
 
   // Update is called once per frame
   void Update () {
     Vector2 accellerationVector = transform.up * accelleration;
-    Rigidbody2D shipBody = this.GetComponent<Rigidbody2D> ();
-
-    //utilizza transform.right dato che la trasformata ha rotazione iniziale di 0,0,90
-
     if (Input.GetKey (KeyCode.W)) {
       shipBody.AddForce (accellerationVector);
     }
