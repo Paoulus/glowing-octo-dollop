@@ -13,6 +13,7 @@ public class PlayerCarController : MonoBehaviour {
   public float turningRadius = 0.5f;
   public float driftQuantity = 1.4f;
 
+
 	private Cronometro cr;
 
   public Slider healthBarSlider;
@@ -26,6 +27,8 @@ public class PlayerCarController : MonoBehaviour {
 	public KeyCode drift;
 
 	private LevelManager mainLevelManager;
+
+	private bool alive = true;
 
   private ParticleSystem smokeTrails;
 	public ParticleSystem explosionEffect;
@@ -72,15 +75,17 @@ public class PlayerCarController : MonoBehaviour {
 
 	  // Update is called once per frame
 	  void Update () {
-		Vector2 accellerationVector = transform.up * accelleration;
-		if (Input.GetKey (accelerate)) {
-		shipBody.AddForce (accellerationVector);
-	    }
-			if (Input.GetKey (brake)) {
-	      shipBody.AddForce (-accellerationVector);
-	    }
+		if(alive){
+			Vector2 accellerationVector = transform.up * accelleration;
 
-			if (shipBody.velocity.magnitude >= 0.3f) {
+			if (Input.GetKey (accelerate)) {
+				shipBody.AddForce (accellerationVector);
+		    }
+			if (Input.GetKey (brake)) {
+		      	shipBody.AddForce (-accellerationVector);
+		    }
+
+			if (shipBody.velocity.magnitude >= 0.41f) {
 				if (Input.GetKey (left)) {
 					if (Input.GetKey (drift)) {
 						shipBody.AddTorque (turningRadius * driftQuantity);
@@ -93,18 +98,19 @@ public class PlayerCarController : MonoBehaviour {
 						shipBody.AddTorque (-turningRadius * driftQuantity);
 				} else {
 						shipBody.AddTorque (-turningRadius);
+					}
 				}
 			}
-		}
 
-		if ((Input.GetKey (right) || (Input.GetKey (left))) && Input.GetKey (drift)) {
-	      if (!smokeTrails.isPlaying) {
-	        smokeTrails.Play ();
-	      }
-	    } else {
-	      if (smokeTrails.isPlaying)
-	        smokeTrails.Stop ();
-	    }
+			if ((Input.GetKey (right) || (Input.GetKey (left))) && Input.GetKey (drift)) {
+		      if (!smokeTrails.isPlaying) {
+		        smokeTrails.Play ();
+		      }
+		    } else {
+		      if (smokeTrails.isPlaying)
+		        smokeTrails.Stop ();
+		    }
+		}
 		healthBarSlider.value = totalHealth;
 		loopsText.text = loopsDone.ToString();
 		timeText.text = cr.elapsedTime.ToString ();
@@ -117,6 +123,8 @@ public class PlayerCarController : MonoBehaviour {
 			explosionEffect.transform.position = transform.position;
 			explosionEffect.Play ();
 			Invoke ("GameOver", 2.1f);
+			GetComponent<SpriteRenderer> ().color = new Color (0f, 0f, 0f, 0f);
+			alive = false;
 		}
 	}
 
