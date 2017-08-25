@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 198744927529157716}
   - component: {fileID: 199384295119735232}
   - component: {fileID: 114673882079556780}
+  - component: {fileID: 114348987556140282}
   m_Layer: 0
   m_Name: PlayerCar
   m_TagString: Untagged
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1458094256144718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.37, y: -45.16, z: 0}
+  m_LocalPosition: {x: -12.31, y: -45.16, z: 0}
   m_LocalScale: {x: 0.62, y: 0.54, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -90,6 +91,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.09, y: 2.48}
   m_EdgeRadius: 0
+--- !u!114 &114348987556140282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1458094256144718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 935bfc88fee8ab346a309a3d5e07968f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elapsedTime: 0
 --- !u!114 &114673882079556780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,10 +116,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accelleration: 3.5
   maximumSpeed: 100
-  health: 100
+  totalHealth: 100
   minimumSpeed: -7
   turningRadius: 0.1
   driftQuantity: 1.4
+  healthBarSlider: {fileID: 0}
+  timeText: {fileID: 0}
+  loopsText: {fileID: 0}
+  accelerate: 119
+  brake: 115
+  left: 97
+  right: 100
+  drift: 32
+  explosionEffect: {fileID: 0}
+  loopsDone: 0
 --- !u!198 &198744927529157716
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -114,7 +137,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1458094256144718}
   serializedVersion: 5
-  lengthInSec: 4
+  lengthInSec: 20.06
   simulationSpeed: 1
   looping: 1
   prewarm: 1
@@ -166,7 +189,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1140014740
+  randomSeed: 287891009
   InitialModule:
     serializedVersion: 3
     enabled: 1

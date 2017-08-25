@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Cronometro : MonoBehaviour {
 
-	public Text text;
-
 	private float currentTime = 0f;
-	private float elapsedTime = 0f;
+	public float elapsedTime = 0f;
+	float _elapsedTime{
+		get{
+			return elapsedTime;
+		}
+	}
 
 	private bool countTime;
 
@@ -21,21 +23,18 @@ public class Cronometro : MonoBehaviour {
 	void Update () {
 		if(countTime){
 			elapsedTime = Time.time - currentTime;
-			text.text = elapsedTime.ToString();
 		}
 	}
 
 	public void StartTimer(){
-		currentTime = Time.time;
-		countTime = true;
+		if (!countTime) {
+			currentTime = Time.time;
+			countTime = true;
+		}
 	}
 
 	public void StopTimer(){
 		countTime = false;
-	}
-
-	public float GetTime(){
-		return elapsedTime;
 	}
 
 	public bool isCounting(){

@@ -2,18 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Starline : MonoBehaviour {
-
-
-	private GameManager manager;
+public class Startline : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		manager = FindObjectOfType<GameManager> () ;
 	}
 
 	void OnTriggerEnter2D(Collider2D coll){
-		manager.PassingStartLine ();
+		//coll.gameObject.GetComponent<Cronometro> ().StartTimer();
 	}
 
 	// Update is called once per frame
