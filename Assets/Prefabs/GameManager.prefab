@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1660268256055724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 233, y: -9, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,3 +51,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e040d05976c8e2419d28dfcf90d5a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 198058833356803682, guid: c734d2aafd0fd784a85be4265aaa1bc6,
+    type: 2}
+  indicatoreGiri: {fileID: 0}
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
+  maximumLoops: 2
