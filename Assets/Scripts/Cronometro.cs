@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cronometro : MonoBehaviour {
-
-	private float currentTime = 0f;
 	public float elapsedTime = 0f;
 	float _elapsedTime{
 		get{
@@ -12,38 +10,42 @@ public class Cronometro : MonoBehaviour {
 		}
 	}
 
-	private bool countTime;
+	public bool isTimeAdvancing;
+	bool _isTimeAdvancing{
+		get{
+			return isTimeAdvancing;
+		}
+	}
+
+	private float currentTime = 0f;
 
 	// Use this for initialization
 	void Start () {
-		countTime = false;
+		isTimeAdvancing = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(countTime){
+		if(isTimeAdvancing){
 			elapsedTime = Time.time - currentTime;
 		}
 	}
 
 	public void StartTimer(){
-		if (!countTime) {
+		if (!isTimeAdvancing) {
 			currentTime = Time.time;
-			countTime = true;
+			isTimeAdvancing = true;
 		}else{
 			RestartTime ();
 		}
 	}
 
+	//riavvia il cronometro senza fermarlo
 	public void RestartTime(){
 		currentTime = Time.time;
 	}
 
 	public void StopTimer(){
-		countTime = false;
-	}
-
-	public bool isCounting(){
-		return countTime;
+		isTimeAdvancing = false;
 	}
 }

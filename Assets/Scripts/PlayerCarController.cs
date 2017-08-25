@@ -4,19 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent (typeof (ParticleSystem))]
+[RequireComponent (typeof (Cronometro))]
 public class PlayerCarController : MonoBehaviour {
 
-  public float accelleration = 0.5f;
-  public float maximumSpeed = 10f;
-  public float totalHealth = 100f;
-  public float minimumSpeed = -7f;
-  public float turningRadius = 0.5f;
-  public float driftQuantity = 1.4f;
+	public float accelleration = 0.5f;
+	public float maximumSpeed = 10f;
+	public float totalHealth = 100f;
+	public float minimumSpeed = -7f;
+	public float turningRadius = 0.5f;
+	public float driftQuantity = 1.4f;
 
+    public Slider healthBarSlider;
 
-	private Cronometro cr;
-
-  public Slider healthBarSlider;
 	public Text timeText;
 	public Text loopsText;
 	public Text bestTimeText;
@@ -27,15 +26,20 @@ public class PlayerCarController : MonoBehaviour {
 	public KeyCode right;
 	public KeyCode drift;
 
+	private Cronometro cr;
+
 	private LevelManager mainLevelManager;
 
 	private bool alive = true;
 
 	private float bestTime = 500f;
 
-  private ParticleSystem smokeTrails;
+  	private ParticleSystem smokeTrails;
 	public ParticleSystem explosionEffect;
 	private Rigidbody2D shipBody;
+
+	public float originalAngularDrag;
+
 	public int loopsDone;
 	int _loopsDone{
 		get{
@@ -45,7 +49,8 @@ public class PlayerCarController : MonoBehaviour {
 			loopsDone = value;
 		}
 	}
-	private float lapTime;
+
+	public float lapTime;
 	float _lapTime{
 		get{
 			return lapTime;
@@ -78,7 +83,8 @@ public class PlayerCarController : MonoBehaviour {
 		if(healthBarSlider){
 				healthBarSlider.minValue = 0f;
 				healthBarSlider.maxValue = totalHealth;
-			}
+		}
+		originalAngularDrag = shipBody.angularDrag;
 	  }
 
 	  // Update is called once per frame
@@ -93,7 +99,7 @@ public class PlayerCarController : MonoBehaviour {
 		      	shipBody.AddForce (-accellerationVector);
 		    }
 
-			if (shipBody.velocity.magnitude >= 0.41f) {
+			if (shipBody.velocity.magnitude >= 0.41f || Input.GetKey(accelerate)) {
 				if (Input.GetKey (left)) {
 					if (Input.GetKey (drift)) {
 						shipBody.AddTorque (turningRadius * driftQuantity);
@@ -108,6 +114,12 @@ public class PlayerCarController : MonoBehaviour {
 						shipBody.AddTorque (-turningRadius);
 					}
 				}
+			}
+
+			if (Input.GetKey (drift)) {
+				shipBody.angularDrag = originalAngularDrag / 3.8f;
+			}else{
+				shipBody.angularDrag = originalAngularDrag;
 			}
 
 			if ((Input.GetKey (right) || (Input.GetKey (left))) && Input.GetKey (drift)) {

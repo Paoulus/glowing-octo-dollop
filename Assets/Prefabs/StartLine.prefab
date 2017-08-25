@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4392361095174224}
   - component: {fileID: 61598479249573128}
-  - component: {fileID: 114939782717867004}
   - component: {fileID: 212159171683905556}
   m_Layer: 0
   m_Name: StartLine
@@ -67,17 +66,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9.87, y: 10.9}
   m_EdgeRadius: 0
---- !u!114 &114939782717867004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1984023402306466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6f3dd490153e0b4c9d48920680b1daa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212159171683905556
 SpriteRenderer:
   m_ObjectHideFlags: 1

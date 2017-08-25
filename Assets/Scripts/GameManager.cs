@@ -5,16 +5,15 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
-	
-	private LevelManager mainLevelManager;
-
 	public ParticleSystem explosionEffect;
 
 	public PlayerCarController[] players;
 
 	public int maximumLoops = 3;
-	private int loops = 0;
 
+	private LevelManager mainLevelManager;
+
+	private int loops = 0;
 	int _loops {
 		get{
 			return loops;

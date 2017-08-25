@@ -57,9 +57,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.16
-  m_LinearDrag: 2
-  m_AngularDrag: 2
+  m_Mass: 0.18
+  m_LinearDrag: 1.72
+  m_AngularDrag: 4.47
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -123,12 +123,14 @@ MonoBehaviour:
   healthBarSlider: {fileID: 0}
   timeText: {fileID: 0}
   loopsText: {fileID: 0}
+  bestTimeText: {fileID: 0}
   accelerate: 119
   brake: 115
   left: 97
   right: 100
-  drift: 32
+  drift: 304
   explosionEffect: {fileID: 0}
+  originalAngularDrag: 0
   loopsDone: 0
 --- !u!198 &198744927529157716
 ParticleSystem:
@@ -189,7 +191,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 287891009
+  randomSeed: -641221785
   InitialModule:
     serializedVersion: 3
     enabled: 1
