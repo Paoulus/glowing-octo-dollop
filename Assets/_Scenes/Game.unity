@@ -435,6 +435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elapsedTime: 0
+  isTimeAdvancing: 0
 --- !u!4 &193518717
 Transform:
   m_ObjectHideFlags: 0
@@ -1361,6 +1362,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 68692088162738452, guid: f1f359824ac947340a5bcec9863d98f4,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 0.07
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1f359824ac947340a5bcec9863d98f4, type: 2}
   m_IsPrefabParent: 0
@@ -2038,26 +2044,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 4234894234157614, guid: ef32b2631e7464e45888c4a2e07bffad, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -90.164
-      objectReference: {fileID: 0}
     - target: {fileID: 1902130323437170, guid: ef32b2631e7464e45888c4a2e07bffad, type: 2}
       propertyPath: m_Name
       value: MapTile (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4234894234157614, guid: ef32b2631e7464e45888c4a2e07bffad, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 8.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 4234894234157614, guid: ef32b2631e7464e45888c4a2e07bffad, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 2.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 68692088162738452, guid: ef32b2631e7464e45888c4a2e07bffad,
-        type: 2}
-      propertyPath: m_Material
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef32b2631e7464e45888c4a2e07bffad, type: 2}
