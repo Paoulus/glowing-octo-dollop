@@ -13,7 +13,7 @@ public class PlayerCarController : MonoBehaviour {
   public float turningRadius = 0.5f;
   public float driftQuantity = 1.4f;
 
-	public Slider healthBarSlider;
+  public Slider healthBarSlider;
 
   private ParticleSystem smokeTrails;
 	private Rigidbody2D shipBody;

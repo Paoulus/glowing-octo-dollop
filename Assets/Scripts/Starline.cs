@@ -13,7 +13,7 @@ public class Starline : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D coll){
-		manager.StartTimer ();
+		manager.PassingStartLine ();
 	}
 
 	// Update is called once per frame
