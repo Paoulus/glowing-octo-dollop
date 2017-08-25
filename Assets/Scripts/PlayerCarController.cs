@@ -19,6 +19,7 @@ public class PlayerCarController : MonoBehaviour {
   public Slider healthBarSlider;
 	public Text timeText;
 	public Text loopsText;
+	public Text bestTimeText;
 
 	public KeyCode accelerate;
 	public KeyCode brake;
@@ -29,6 +30,8 @@ public class PlayerCarController : MonoBehaviour {
 	private LevelManager mainLevelManager;
 
 	private bool alive = true;
+
+	private float bestTime = 500f;
 
   private ParticleSystem smokeTrails;
 	public ParticleSystem explosionEffect;
@@ -53,8 +56,13 @@ public class PlayerCarController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D coll){
-		GetComponent<Cronometro> ().StartTimer();
 		loopsDone += 1;
+		if (loopsDone > 1) {
+			if (cr.elapsedTime < bestTime) {
+				bestTime = cr.elapsedTime;
+			}
+		}
+		GetComponent<Cronometro> ().StartTimer();
 	}
 
 	  void OnCollisionEnter2D (Collision2D coll) {
@@ -115,6 +123,7 @@ public class PlayerCarController : MonoBehaviour {
 		loopsText.text = loopsDone.ToString();
 		timeText.text = cr.elapsedTime.ToString ();
 
+		bestTimeText.text = bestTime.ToString ();
 		controllaSalute ();
 	}
 

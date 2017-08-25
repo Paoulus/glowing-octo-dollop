@@ -30,7 +30,13 @@ public class Cronometro : MonoBehaviour {
 		if (!countTime) {
 			currentTime = Time.time;
 			countTime = true;
+		}else{
+			RestartTime ();
 		}
+	}
+
+	public void RestartTime(){
+		currentTime = Time.time;
 	}
 
 	public void StopTimer(){

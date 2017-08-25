@@ -15,8 +15,6 @@ public class GameManager : MonoBehaviour {
 	public int maximumLoops = 3;
 	private int loops = 0;
 
-	private Cronometro timer;
-
 	int _loops {
 		get{
 			return loops;
