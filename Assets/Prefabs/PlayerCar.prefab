@@ -60,9 +60,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.18
-  m_LinearDrag: 1.72
-  m_AngularDrag: 4.47
+  m_Mass: 1.01
+  m_LinearDrag: 2.08
+  m_AngularDrag: 5.56
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -156,11 +156,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4f9f127fa08014d84cea12d25713ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelleration: 3.5
-  turningRadius: 0.1
-  driftQuantity: 1.4
-  minimumTurningSpeed: 0.41
-  driftAngularDragReduction: 0.3
+  accelleration: 20
+  turningTorque: 2.49
+  driftQuantity: 0.71
+  minimumTurningSpeed: 1.04
+  driftAngularDragReduction: 0.63
   explosionEffect: {fileID: 0}
   loopsDone: 0
   playerNumber: 0

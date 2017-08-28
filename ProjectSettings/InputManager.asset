@@ -297,9 +297,9 @@ InputManager:
     m_Name: Horizontal Player 2
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: j
     positiveButton: l
-    altNegativeButton: j
+    altNegativeButton: 
     altPositiveButton: joystick button 1
     gravity: 1000
     dead: 0.001
@@ -313,8 +313,8 @@ InputManager:
     m_Name: Vertical Player 2
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: i
-    positiveButton: k
+    negativeButton: k
+    positiveButton: i
     altNegativeButton: 
     altPositiveButton: joystick button 1
     gravity: 1000

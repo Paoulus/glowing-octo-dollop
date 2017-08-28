@@ -17,12 +17,14 @@ public class CarUIComponent : MonoBehaviour {
 	void Start(){
 		healthComponent = GetComponent<HealthComponent> ();
 		cronometro = GetComponent<Cronometro> ();
+        healthBarSlider.maxValue = healthComponent.maximumHealth;
+        healthBarSlider.minValue = 0f;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		timeText.text = cronometro.elapsedTime.ToString();
-		//loopsText.text = loopComponent.loops.ToString();
+        loopsText.text = cronometro.BestTime().ToString();
 		bestTimeText.text = cronometro.BestTime ().ToString();
 		healthBarSlider.value = healthComponent.currentHealth;
 	}

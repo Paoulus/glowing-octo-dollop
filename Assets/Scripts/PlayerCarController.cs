@@ -65,9 +65,11 @@ public class PlayerCarController : MonoBehaviour {
                 {
                     carRigidBody2D.angularDrag = originalAngularDrag - driftAngularDragReduction;
                     smokeTrails.Play();
+                    carRigidBody2D.AddTorque(turningTorque * -Input.GetAxis(horizontalAxisString));
                 }
                 else
                 {
+                    carRigidBody2D.AddTorque(turningTorque * -Input.GetAxis(horizontalAxisString));
                     smokeTrails.Stop();
                 }
     }
