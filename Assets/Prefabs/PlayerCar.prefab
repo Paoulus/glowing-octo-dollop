@@ -26,6 +26,9 @@ GameObject:
   - component: {fileID: 199384295119735232}
   - component: {fileID: 114673882079556780}
   - component: {fileID: 114348987556140282}
+  - component: {fileID: 114564529399899120}
+  - component: {fileID: 114504561886593470}
+  - component: {fileID: 114573035832791790}
   m_Layer: 0
   m_Name: PlayerCar
   m_TagString: Untagged
@@ -102,7 +105,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 935bfc88fee8ab346a309a3d5e07968f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elapsedTime: 0
+--- !u!114 &114504561886593470
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1458094256144718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6125bcd954ac0045a461f77b4c187e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarSlider: {fileID: 0}
+  timeText: {fileID: 0}
+  loopsText: {fileID: 0}
+  bestTimeText: {fileID: 0}
+--- !u!114 &114564529399899120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1458094256144718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1bf6185ba54e654cacacfd1ef8d2eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maximumHealth: 100
+  crushDamage: 10
+  isInvulnerable: 0
+--- !u!114 &114573035832791790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1458094256144718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6c5fc7fde2fd84d965c12042493de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114673882079556780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,23 +157,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accelleration: 3.5
-  maximumSpeed: 100
-  totalHealth: 100
-  minimumSpeed: -7
   turningRadius: 0.1
   driftQuantity: 1.4
-  healthBarSlider: {fileID: 0}
-  timeText: {fileID: 0}
-  loopsText: {fileID: 0}
-  bestTimeText: {fileID: 0}
-  accelerate: 119
-  brake: 115
-  left: 97
-  right: 100
-  drift: 304
+  minimumTurningSpeed: 0.41
+  driftAngularDragReduction: 0.3
   explosionEffect: {fileID: 0}
-  originalAngularDrag: 0
   loopsDone: 0
+  playerNumber: 0
 --- !u!198 &198744927529157716
 ParticleSystem:
   m_ObjectHideFlags: 1

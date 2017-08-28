@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cronometro : MonoBehaviour {
+  
+  private List<float>  _loopTimes;
   private float _elapsedTime = 0f;
 
   public float elapsedTime {
@@ -26,6 +28,10 @@ public class Cronometro : MonoBehaviour {
   }
 
   private float currentTime = 0f;
+
+	void  OnTriggerEnter2D(){
+		StartTimer();
+	}
 
   // Use this for initialization
   void Start () {
@@ -53,5 +59,9 @@ public class Cronometro : MonoBehaviour {
 
   public void StopTimer () {
     isTimeAdvancing = false;
+  }
+ 
+  public float BestTime(){
+		return 0.0f;
   }
 }
