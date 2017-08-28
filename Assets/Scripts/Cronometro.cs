@@ -3,49 +3,55 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cronometro : MonoBehaviour {
-	public float elapsedTime = 0f;
-	float _elapsedTime{
-		get{
-			return elapsedTime;
-		}
-	}
+  private float _elapsedTime = 0f;
 
-	public bool isTimeAdvancing;
-	bool _isTimeAdvancing{
-		get{
-			return isTimeAdvancing;
-		}
-	}
+  public float elapsedTime {
+    get {
+      return _elapsedTime;
+    }
+    private set {
+      _elapsedTime = value;
+    }
+  }
 
-	private float currentTime = 0f;
+  private bool _isTimeAdvancing;
 
-	// Use this for initialization
-	void Start () {
-		isTimeAdvancing = false;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if(isTimeAdvancing){
-			elapsedTime = Time.time - currentTime;
-		}
-	}
+  public bool isTimeAdvancing {
+    get {
+      return _isTimeAdvancing;
+    }
+    private set {
+      _isTimeAdvancing = value;
+    }
+  }
 
-	public void StartTimer(){
-		if (!isTimeAdvancing) {
-			currentTime = Time.time;
-			isTimeAdvancing = true;
-		}else{
-			RestartTime ();
-		}
-	}
+  private float currentTime = 0f;
 
-	//riavvia il cronometro senza fermarlo
-	public void RestartTime(){
-		currentTime = Time.time;
-	}
+  // Use this for initialization
+  void Start () {
+    isTimeAdvancing = false;
+  }
 
-	public void StopTimer(){
-		isTimeAdvancing = false;
-	}
+  // Update is called once per frame
+  void Update () {
+    if (isTimeAdvancing) {
+      elapsedTime = Time.time - currentTime;
+    }
+  }
+
+  public void StartTimer () {
+    RestartTime ();
+    if (!isTimeAdvancing) {
+      isTimeAdvancing = true;
+    }
+  }
+
+  //riavvia il cronometro senza fermarlo
+  public void RestartTime () {
+    currentTime = Time.time;
+  }
+
+  public void StopTimer () {
+    isTimeAdvancing = false;
+  }
 }
