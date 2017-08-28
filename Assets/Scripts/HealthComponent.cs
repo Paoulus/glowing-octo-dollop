@@ -23,7 +23,7 @@ public class HealthComponent : MonoBehaviour {
 		InflictDamage (crushDamage);
 	}
 
-	public void InflictDamage(float d){
+    void InflictDamage(float d){
 		if(d >= 0 && !isInvulnerable)
 			currentHealth -= d;
 	}

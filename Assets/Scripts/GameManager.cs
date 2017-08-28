@@ -20,10 +20,5 @@ public class GameManager : MonoBehaviour {
 
   // Update is called once per frame
   void Update () {
-    foreach (PlayerCarController car in players) {
-      if (car.loopsDone > maximumLoops) {
-        mainLevelManager.EndGame ();
-      }
-    }
   }
 }

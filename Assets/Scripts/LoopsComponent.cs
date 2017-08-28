@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LoopsComponent : MonoBehaviour {
 
+    public int maximumLoops = 3;
+
 	private int _loopsDone = 0;
 	public int loopsDone {
 		get{ 
