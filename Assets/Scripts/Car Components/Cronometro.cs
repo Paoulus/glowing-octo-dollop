@@ -41,7 +41,7 @@ public class Cronometro : MonoBehaviour {
 
   public void StartTimer () {
     if (isTimeAdvancing) {
-        loopTimes.Add(currentTime);
+        loopTimes.Add(elapsedTime);
         loopTimes.Sort((x, y) => { if (x < y) return -1; if (x > y) return 1; return 0; }); //il comparator è specificato tramite l'espressione lambda
     }
     else
