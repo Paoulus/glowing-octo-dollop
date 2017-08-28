@@ -23,6 +23,7 @@ public class EffectsManagerComponent : MonoBehaviour {
     {
         if (!explosionCreated)
         {
+            explosionCreated = true;
             Instantiate(explosionEffect, transform.position, transform.rotation).Play();
         }
     }
