@@ -2,19 +2,15 @@
 
 public class LoopsComponent : MonoBehaviour {
 
-  public int maximumLoops = 3;
+  	public int maximumLoops = 3;
+	public int loopsDone;
 
-	private int _loopsDone = 0;
-	public int loopsDone {
-		get{ 
-			return _loopsDone;
-		}
-		private set { 
-			_loopsDone = value;
-		}
-	}
+	public bool rightDirection = false;
 
-	void OnTriggerEnter2D (Collider2D coll) {
-		loopsDone += 1;
+	public void IncreaseLoops(){
+		if(rightDirection){
+			loopsDone += 1;
+			rightDirection = false;
+		}
 	}
 }
