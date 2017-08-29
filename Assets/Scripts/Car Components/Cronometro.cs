@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Cronometro : MonoBehaviour {
@@ -15,8 +14,6 @@ public class Cronometro : MonoBehaviour {
       _elapsedTime = value;
     }
   }
-
-  private bool _isTimeAdvancing;
 
   private bool isTimeAdvancing;
 

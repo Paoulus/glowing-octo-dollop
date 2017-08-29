@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+// Mancano i require component
 public class CarUIComponent : MonoBehaviour {
 
 	public Slider healthBarSlider;

@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(EffectsManagerComponent))]
 public class PlayerMovementComponent : MonoBehaviour {
     public float minimumTurningSpeed = 0.41f;
     public float driftAngularDragReduction = 2.5f;

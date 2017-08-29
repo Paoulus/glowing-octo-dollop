@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent (typeof (EffectsManagerComponent))]
 [RequireComponent (typeof (Cronometro))]
 [RequireComponent (typeof (HealthComponent))]
 [RequireComponent (typeof (CarUIComponent))]
+[RequireComponent (typeof (SpriteRenderer))]
+[RequireComponent (typeof (PlayerMovementComponent))]
 public class PlayerCarController : MonoBehaviour {
   private LevelManager mainLevelManager;
 
