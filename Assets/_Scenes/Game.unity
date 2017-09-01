@@ -2261,7 +2261,7 @@ Prefab:
     - target: {fileID: 114402405289085870, guid: 42647d5f322abcb4699d8e2312cf05c8,
         type: 2}
       propertyPath: turningTorqueDuringDrift
-      value: 6.65
+      value: 7.94
       objectReference: {fileID: 0}
     - target: {fileID: 114402405289085870, guid: 42647d5f322abcb4699d8e2312cf05c8,
         type: 2}
@@ -2292,6 +2292,16 @@ Prefab:
         type: 2}
       propertyPath: crushDamage
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 50074801231594546, guid: 42647d5f322abcb4699d8e2312cf05c8,
+        type: 2}
+      propertyPath: m_AngularDrag
+      value: 4.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402405289085870, guid: 42647d5f322abcb4699d8e2312cf05c8,
+        type: 2}
+      propertyPath: driftAngularDragReduction
+      value: 1.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 42647d5f322abcb4699d8e2312cf05c8, type: 2}
